@@ -37,7 +37,7 @@
 
             </form>
             <svg width="360" height="250" viewBox="0 0 360 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="360" height="250" fill="white"/>
+                <rect width="360" height="250" fill="white" stroke='gray'/>
                 <line x1="217.606" y1="146.743" x2="59.7244" y2="89.2789" stroke="#BBBBBB" stroke-width="12" stroke-linecap="round"/>
                 <line x1="323.098" y1="96.9736" x2="217.387" y2="146.267" stroke="#BBBBBB" stroke-width="12" stroke-linecap="round"/>
                 <line x1="31.708" y1="228.419" x2="86.9969" y2="76.5145" stroke="#BBBBBB" stroke-width="12" stroke-linecap="round"/>
@@ -246,20 +246,43 @@
                 document.documentElement.style
                     .setProperty('--animation-end', (1-animationEnd)*length);
 
-                path.style.setProperty('animation-duration', `${animatedLength/speed}s`)
+                const duration = animatedLength/speed;
+
+                path.style.setProperty('animation-duration', `${duration}s`)
                 path.style.setProperty('stroke-dashoffset', length);
                 path.style.setProperty('stroke-dasharray', length);
 
+                let delay = 0;
                 if (path.dataset.delaylength && path.dataset.delayspeed) {
-                    const duration = Number(path.dataset.delaylength)/Number(path.dataset.delayspeed);
-                    path.style.setProperty('animation-delay', `${duration}s`);
+                    delay = Number(path.dataset.delaylength)/Number(path.dataset.delayspeed);
+                    path.style.setProperty('animation-delay', `${delay}s`);
                 }
+
+                return delay+duration;
             }
 
             const radioInputs = document.getElementById("vehicleSelector");
-            const radios = document.getElementById('form').elements.type
+            const radios = document.getElementById('form').elements.type;
+
+            let sameTypeClickLock = false;
+            let lockId = null;
+
+            function onClick(e) {
+                const value = e.target.parentElement.querySelector('input').value;
+
+                if (value == radios.value && !sameTypeClickLock) {
+                    radioChange()
+                }
+            }
 
             function radioChange() {
+
+                if (lockId) {
+                    clearTimeout(lockId);
+                    lockId = null;
+                }
+
+                console.log('change')
                 for (let g of ['van', 'bikes', 'mixed']) {
                     const element = document.getElementById(g)
                     element.style.setProperty('visibility', 'hidden');
@@ -270,15 +293,35 @@
                 }
                 const element = document.getElementById(radios.value);
                 element.style.setProperty('visibility', 'visible')
-                for (let child of element.querySelectorAll('path')) {
-                    child.classList.add('path')
-                    animatePath(child)
-                }
+
+
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        let maxDuration = 0;
+
+                        for (let child of element.querySelectorAll('path')) {
+                            child.classList.add('path')
+                            const duration = animatePath(child);
+
+                            if (duration > maxDuration)
+                                maxDuration = duration;
+                        }
+                        sameTypeClickLock = true;
+                        lockId = setTimeout(() => {
+                            sameTypeClickLock = false;
+                            lockId = null;
+                        }, maxDuration*1000);
+                    })
+                })
             }
 
             radioChange()
 
-            radioInputs.addEventListener('change', radioChange)
+            radioInputs.addEventListener('change', radioChange);
+
+            for (let el of document.querySelectorAll('span.radio')) {
+                el.addEventListener('click', onClick)
+            }
         </script>
     </body>
 </html>
