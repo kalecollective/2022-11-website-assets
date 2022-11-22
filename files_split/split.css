@@ -2,7 +2,7 @@
     --animation-end: 0;
 }
 
-.path {
+figure.animation .path {
     stroke-dasharray: 0;
     stroke-dashoffset: 0;
     animation-name: dash;
@@ -17,17 +17,17 @@
     }
 }
 
-figure {
+figure.animation {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
 }
 
-div.tradeoffs.bikes, div.tradeoffs.mixed {
+figure.animation div.tradeoffs.bikes, div.tradeoffs.mixed {
     display:none;
 }
 
-div.tradeoffs {
+figure.animation div.tradeoffs {
     margin-top: 47px;
     margin-left: 20px;
     font-family: sans-serif;
@@ -39,36 +39,36 @@ div.tradeoffs {
     height: 250px;
 }
 
-div.tradeoffs > div {
+figure.animation div.tradeoffs > div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-div.tradeoffs > div > span:first-of-type {
+figure.animation div.tradeoffs > div > span:first-of-type {
     margin-right: 20px
 }
 
-div {
+figure.animation div {
     width: max-content;
 }
-input[type="radio"] {
+figure.animation input[type="radio"] {
     position: absolute;
     opacity: 0;
 }
 
-fieldset {
+figure.animation fieldset {
     border: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
 }
-fieldset label {
+figure.animation fieldset label {
     flex: 1 1 auto;
 
 }
-span.radio {
+figure.animation span.radio {
     display: inline-block;
     vertical-align: middle;
     text-align: center;
@@ -94,21 +94,21 @@ span.radio {
 
 }
 
-input:checked + span.radio {
+figure.animation input:checked + span.radio {
     border-color: rgba(0,0,0,0.8);
     filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.4));
 }
 
-input[value="mixed"] + span.radio {
+figure.animation input[value="mixed"] + span.radio {
     background: rgb(94,105,208);
     background: linear-gradient(135deg, rgba(94,105,208,1) 0%, rgba(94,105,208,1) 50%, rgba(208,94,169,1) 50%, rgba(208,94,169,1) 100%);
 }
 
-input[value="bikes"] + span.radio {
+figure.animation input[value="bikes"] + span.radio {
     background: rgba(208,94,169,1);
 }
 
-input[value="van"] + span.radio {
+figure.animation input[value="van"] + span.radio {
     background: rgb(94,105,208);
 }
 

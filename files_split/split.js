@@ -27,8 +27,9 @@ function animatePath(path) {
     return delay+duration;
 }
 
-const radioInputs = document.getElementById("vehicleSelector");
-const radios = document.getElementById('form').elements.type;
+const root = document.querySelector('figure.animation');
+const radioInputs = root.querySelector("fieldset");
+const radios = root.querySelector('form').elements.type;
 
 let sameTypeClickLock = false;
 let lockId = null;
@@ -50,7 +51,7 @@ function radioChange() {
 
     // Hide all the elements
     for (let g of ['van', 'bikes', 'mixed']) {
-        const element = document.getElementById(g)
+        const element = root.querySelector(`#${g}`)
         element.style.setProperty('visibility', 'hidden');
 
         for (let child of element.querySelectorAll('path')) {
@@ -71,7 +72,7 @@ function radioChange() {
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
             // Display the correct path
-            const element = document.getElementById(radios.value);
+            const element = root.querySelector(`#${radios.value}`);
             element.style.setProperty('visibility', 'visible');
 
             // Keep track of animation duration for animation lock
