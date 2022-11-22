@@ -91,9 +91,17 @@ figure.animation fieldset {
     flex-direction: row;
     justify-content: center;
     column-gap: 20px;
+    margin: 16px 0 16px 0;
+    padding: 0 12px 0 12px
 }
+
+figure.animation label {
+    font-weight: 700;
+    font-size: 16px;
+}
+
 figure.animation span.radio {
-    display: inline-block;
+    display: block;
     vertical-align: middle;
     text-align: center;
     color: white;
