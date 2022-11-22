@@ -21,7 +21,7 @@ figure.animation {
     font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
     font-weight: bold;
     width: max-content;
-    margin: 0;
+    margin: auto;
 }
 
 figure.animation > div {
@@ -35,7 +35,7 @@ figure.animation div.tradeoffs {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    row-gap: 20px;
+    row-gap: 10px;
     margin-top: 20px;
 }
 
