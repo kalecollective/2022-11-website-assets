@@ -98,10 +98,11 @@ figure.animation fieldset {
 figure.animation label {
     font-weight: 700;
     font-size: 16px;
+    text-transform: none;
 }
 
 figure.animation span.radio {
-    display: block;
+    display: inline;
     vertical-align: middle;
     text-align: center;
     color: white;
