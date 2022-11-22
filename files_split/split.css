@@ -18,35 +18,63 @@ figure.animation .path {
 }
 
 figure.animation {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
     font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
     font-weight: bold;
+    width: max-content;
+    margin: 0;
+}
+
+figure.animation > div {
+    display: block;
+}
+
+figure.animation div.tradeoffs {
+    margin-left: 14px;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 20px;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px){
+    figure.animation > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    figure.animation div.tradeoffs {
+        margin-left: 30px;
+        height: 250px;
+        margin-top: 0px;
+    }
+}
+
+figure.animation form {
+    display:block;
+    margin: 0;
 }
 
 figure.animation div.tradeoffs.bikes, div.tradeoffs.mixed {
     display:none;
 }
 
-figure.animation div.tradeoffs {
-    margin-top: 47px;
-    margin-left: 20px;
-    font-size: 1.25em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 250px;
-}
+
 
 figure.animation div.tradeoffs > div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: baseline;
+
 }
 
 figure.animation div.tradeoffs > div > span:first-of-type {
-    margin-right: 20px
+    margin-right: 10px;
+    font-size: 25px;
 }
 
 figure.animation div {
@@ -61,12 +89,8 @@ figure.animation fieldset {
     border: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
-figure.animation fieldset label {
-    flex: 1 1 auto;
-
+    justify-content: center;
+    column-gap: 20px;
 }
 figure.animation span.radio {
     display: inline-block;
@@ -79,7 +103,8 @@ figure.animation span.radio {
     border-radius: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 2px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     cursor: pointer;
     border-width: 2px;
     border-style: solid;
@@ -90,6 +115,10 @@ figure.animation span.radio {
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
 
+}
+
+figure.animation div.tradeoffscontainer {
+    margin:auto;
 }
 
 figure.animation input:checked + span.radio {

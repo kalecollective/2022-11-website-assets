@@ -8,15 +8,14 @@
 
 <body>
     <figure class="animation">
+        <form>
+            <fieldset>
+                <label><input type="radio" name="type" value="van" checked><span class="radio">Van</span></label>
+                <label><input type="radio" name="type" value="bikes"><span class="radio">Bikes</span></label>
+                <label><input type="radio" name="type" value="mixed"><span class="radio">Mixed fleet</span></label>
+            </fieldset>
+        </form>
         <div>
-            <form>
-                <fieldset>
-                    <label><input type="radio" name="type" value="van" checked><span class="radio">Van</span></label>
-                    <label><input type="radio" name="type" value="bikes"><span class="radio">Bikes</span></label>
-                    <label><input type="radio" name="type" value="mixed"><span class="radio">Mixed fleet</span></label>
-                </fieldset>
-
-            </form>
             <svg width="360" height="250" viewBox="0 0 360 250" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="360" height="250" fill="white" stroke='gray' />
                 <line x1="217.606" y1="146.743" x2="59.7244" y2="89.2789" stroke="#BBBBBB" stroke-width="12"
@@ -122,22 +121,22 @@
                 </g>
 
             </svg>
-        </div>
-        <div>
-            <div class="tradeoffs van">
-                <div><span>👍</span><span>Load capacity</span></div>
-                <div><span>👎</span><span>Parking time</span></div>
-                <div><span>👎</span><span>Speed in congested areas</span></div>
-            </div>
-            <div class="tradeoffs bikes">
-                <div><span>👎</span><span>Load capacity</span></div>
-                <div><span>👍</span><span>Parking time</span></div>
-                <div><span>👍</span><span>Speed in congested areas</span></div>
-            </div>
-            <div class="tradeoffs mixed">
-                <div><span>👍</span><span>Load capacity</span></div>
-                <div><span>👍</span><span>Parking time</span></div>
-                <div><span>👍</span><span>Speed in congested areas</span></div>
+            <div class="tradeoffscontainer">
+                <div class="tradeoffs van">
+                    <div><span>👍</span><span>Load capacity</span></div>
+                    <div><span>👎</span><span>Parking time</span></div>
+                    <div><span>👎</span><span>Speed in congested areas</span></div>
+                </div>
+                <div class="tradeoffs bikes">
+                    <div><span>👎</span><span>Load capacity</span></div>
+                    <div><span>👍</span><span>Parking time</span></div>
+                    <div><span>👍</span><span>Speed in congested areas</span></div>
+                </div>
+                <div class="tradeoffs mixed">
+                    <div><span>👍</span><span>Load capacity</span></div>
+                    <div><span>👍</span><span>Parking time</span></div>
+                    <div><span>👍</span><span>Speed in congested areas</span></div>
+                </div>
             </div>
         </div>
     </figure>
