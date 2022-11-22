@@ -21,6 +21,8 @@ figure.animation {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+    font-weight: bold;
 }
 
 figure.animation div.tradeoffs.bikes, div.tradeoffs.mixed {
@@ -30,8 +32,6 @@ figure.animation div.tradeoffs.bikes, div.tradeoffs.mixed {
 figure.animation div.tradeoffs {
     margin-top: 47px;
     margin-left: 20px;
-    font-family: sans-serif;
-    font-weight: bold;
     font-size: 1.25em;
     display: flex;
     flex-direction: column;
@@ -80,8 +80,6 @@ figure.animation span.radio {
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 2px;
-    font-family: sans-serif;
-    font-weight: bold;
     cursor: pointer;
     border-width: 2px;
     border-style: solid;
