@@ -1,0 +1,114 @@
+:root {
+    --animation-end: 0;
+}
+
+.path {
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
+    animation-name: dash;
+    animation-duration: 0s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dash {
+    100% {
+        stroke-dashoffset: var(--animation-end);
+    }
+}
+
+figure {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+div.tradeoffs.bikes, div.tradeoffs.mixed {
+    display:none;
+}
+
+div.tradeoffs {
+    margin-top: 47px;
+    margin-left: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.25em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 250px;
+}
+
+div.tradeoffs > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+div.tradeoffs > div > span:first-of-type {
+    margin-right: 20px
+}
+
+div {
+    width: max-content;
+}
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+fieldset label {
+    flex: 1 1 auto;
+
+}
+span.radio {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    height: 25px;
+    line-height: 23px;
+    background-color: gray;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 2px;
+    font-family: sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-width: 2px;
+    border-style: solid;
+    border-color: none;
+
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+
+}
+
+input:checked + span.radio {
+    border-color: rgba(0,0,0,0.8);
+    filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.4));
+}
+
+input[value="mixed"] + span.radio {
+    background: rgb(94,105,208);
+    background: linear-gradient(135deg, rgba(94,105,208,1) 0%, rgba(94,105,208,1) 50%, rgba(208,94,169,1) 50%, rgba(208,94,169,1) 100%);
+}
+
+input[value="bikes"] + span.radio {
+    background: rgba(208,94,169,1);
+}
+
+input[value="van"] + span.radio {
+    background: rgb(94,105,208);
+}
+
