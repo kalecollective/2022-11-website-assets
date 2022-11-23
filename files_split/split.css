@@ -51,7 +51,6 @@ figure.animation form {
     display:block;
     margin: 0;
     max-width: 100%;
-    overflow-x: scroll;
 }
 
 figure.animation div.tradeoffs.bikes, div.tradeoffs.mixed {
