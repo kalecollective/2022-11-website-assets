@@ -41,7 +41,7 @@ figure.animation div.tradeoffs {
 }
 
 figure.animation svg {
-    width: auto;
+    width: 360px;
     height: auto;
     max-width: 360px;
 }
@@ -94,7 +94,7 @@ figure.animation label {
 }
 
 figure.animation span.radio {
-    display: inline-block;
+    display: inline;
     vertical-align: middle;
     text-align: center;
     color: white;
@@ -164,4 +164,9 @@ figure.animation input[value="van"] + span.radio {
     figure.animation fieldset {
         column-gap: 20px;
     }
+
+    figure.animation svg {
+        width: auto;
+    }
+    
 }
