@@ -20,12 +20,14 @@ figure.animation .path {
 figure.animation {
     font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
     font-weight: bold;
-    width: max-content;
     margin: auto;
 }
 
 figure.animation > div {
     display: block;
+    width: 100%;
+    max-width: max-content;
+    margin: auto;
 }
 
 figure.animation div.tradeoffs {
@@ -39,23 +41,17 @@ figure.animation div.tradeoffs {
     margin-top: 20px;
 }
 
-@media (min-width: 768px){
-    figure.animation > div {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-    }
-
-    figure.animation div.tradeoffs {
-        margin-left: 30px;
-        height: 250px;
-        margin-top: 0px;
-    }
+figure.animation svg {
+    width: auto;
+    height: auto;
+    max-width: 360px;
 }
 
 figure.animation form {
     display:block;
     margin: 0;
+    max-width: 100%;
+    overflow-x: scroll;
 }
 
 figure.animation div.tradeoffs.bikes, div.tradeoffs.mixed {
@@ -67,7 +63,7 @@ figure.animation div.tradeoffs.bikes, div.tradeoffs.mixed {
 figure.animation div.tradeoffs > div {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: left;
     align-items: baseline;
 
 }
@@ -77,9 +73,6 @@ figure.animation div.tradeoffs > div > span:first-of-type {
     font-size: 25px;
 }
 
-figure.animation div {
-    width: max-content;
-}
 figure.animation input[type="radio"] {
     position: absolute;
     opacity: 0;
@@ -90,19 +83,20 @@ figure.animation fieldset {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    column-gap: 20px;
-    margin: 16px 0 16px 0;
-    padding: 0 12px 0 12px
+    column-gap: 15px;
+    margin: 8px 0 8px 0;
+    padding: 0;
 }
 
 figure.animation label {
     font-weight: 700;
     font-size: 16px;
     text-transform: none;
+    white-space: nowrap;
 }
 
 figure.animation span.radio {
-    display: inline;
+    display: inline-block;
     vertical-align: middle;
     text-align: center;
     color: white;
@@ -110,10 +104,10 @@ figure.animation span.radio {
     line-height: 23px;
     background-color: gray;
     border-radius: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     cursor: pointer;
     border-width: 2px;
     border-style: solid;
@@ -124,10 +118,6 @@ figure.animation span.radio {
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
 
-}
-
-figure.animation div.tradeoffscontainer {
-    margin:auto;
 }
 
 figure.animation input:checked + span.radio {
@@ -148,3 +138,32 @@ figure.animation input[value="van"] + span.radio {
     background: rgb(94,105,208);
 }
 
+
+@media (min-width: 768px){
+    figure.animation > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+        max-width: unset;
+    }
+
+    figure.animation div.tradeoffs {
+        height: 250px;
+        margin-top: 0px;
+    }
+
+    figure.animation span.radio {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    figure.animation div.tradeoffscontainer {
+        margin-left: 30px;
+    }
+
+    figure.animation fieldset {
+        column-gap: 20px;
+    }
+}
