@@ -97,6 +97,20 @@ function radioChange() {
     })
 }
 
+let firstRun = true;
+function intersactioncb(entries) {
+    for (let entry of entries) {
+        if (entry.intersectionRatio > 0 && firstRun) {
+            radioChange();
+            firstRun = false;
+        }
+    }
+}
+
+const scrollobserver = new IntersectionObserver(intersactioncb, {threshold: 0.2});
+scrollobserver.observe(root);
+
+// Run initially to make sure DOM is correct
 radioChange()
 
 radioInputs.addEventListener('change', radioChange);
